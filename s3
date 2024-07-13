@@ -1,0 +1,14 @@
+provider "aws"  {
+  region = "us-east-1"
+}
+
+resource "aws_s3_bucket" "demobucket"  {
+  bucket = "random"
+}
+
+resource "aws_s3_object" "demoobject" {
+  bucket = "aws_s3_bucket.random.id"
+  source = "./sample.txt"
+  key = "sampleobject"
+
+  }
